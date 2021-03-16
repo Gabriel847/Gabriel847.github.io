@@ -1,0 +1,180 @@
+@font-face {
+  font-family: "firacode";
+  src: url("fonts/FiraCode-Bold.ttf");
+}
+@font-face {
+  font-family: "roboto";
+  src: url("fonts/roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "KG";
+  src: url("fonts/KGDefyingGravity.ttf");
+}
+
+@keyframes zoom {
+	from{
+		opacity: 0;
+		transform: scale(0.6);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+* {margin: 0;padding: 0;font-family: roboto;}
+body {
+	box-sizing: border-box;
+	background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F5b%2Fae%2F0f%2F5bae0f8487d20e9288ed401397758c19.jpg')}
+.container {
+	background: rgba(0,0,0,.3);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 15vh 14vh 84vh 5vh;
+	grid-template-areas: "h"
+				 	 	 "m"
+				 	 	 "a"
+				 	 	 "f"
+}
+
+header,aside,footer {padding: 1vh;}
+
+/* Elements youngs for the header */
+header {
+	grid-area: h;
+	background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.1));
+	text-align: center;	
+}
+header p {
+	font : 300% KG;
+	text-align: center;
+	color: white;
+}
+header img{
+	width: 25px;
+	background: white;
+	border-radius: 15px;
+	padding: 10px;
+	display: inline-block;}
+
+/* Elements youngs for the main */
+main {
+	grid-area: m;
+	padding-top: 20px;			
+	background: red;
+	text-align: center;
+	background: linear-gradient(to top, rgba(0,0,0,.1),rgba(0,0,0,.6),rgba(0,0,0,.1));
+}
+input {outline: none;background: #ededed;}		
+input[type="search"] {
+	width: 92%;
+	margin:  0 auto;
+	padding:  15px;
+	font: 95%/180% Arial, Helvetica, sans-serif;
+	border-radius:  20px;
+	border:  none;
+	color: #222;
+	animation:  zoom 500ms;
+}		
+
+/* Elements youngs for the aside */
+aside {
+	grid-area: a;
+	background: rgba(0,0,0,.1);
+}
+aside div.result{
+	width: 90%;
+	min-height:  84%;
+	background: rgb(255,255,255);
+	border-radius: 20px;
+	padding: 30px 15px;
+	margin:  0 auto;
+	background: rgb(230,230,230);
+	box-shadow: 5px 5px 15px 10px rgba(10,10,10,.9);
+	text-align:  center;
+	transition: 400ms;
+}
+aside div.result:hover {
+	box-shadow: 5px 5px 15px 10px rgba(180,180,180,.5);
+}
+div.result div.comic {
+	width: 20%;
+	display: inline-block;
+	padding: 15px 10px;
+	text-align: center;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 20px;
+	transition: 330ms;
+	border-radius: 10px;
+}
+div.result div.comic:hover {
+	cursor: pointer;
+	
+	box-shadow: 5px 5px 15px 10px rgba(100,100,100,.4);
+}
+div.result input[type="checkbox"] {display: none;}
+div.result strong {
+	font: 40px KG;
+	transition: 540ms;
+	color: rgba(0,0,0,.6);
+}
+div.result div.comic:hover strong{color:#000;}
+div.result div.comic img {
+	width: 96%;
+	margin-top: 15px;
+}
+.checked {background: rgba(0,0,0,.6);}
+div.result a {
+	width: 30%;
+	padding: 10px 15px;
+	margin-top: 10px;
+	border-radius: 4px;
+	border: none;
+	font: 90% Arial, Helvetica, sans-serif;
+	text-align:  center;
+	color: #fff;
+	transition: 440ms;
+	cursor: pointer;
+}
+div.result a.add{background: rgb(30, 120, 200);margin-left: 5px;float: left;}
+div.result a.moreDetails{background: rgb(20, 20, 20);margin-right: 5px;float: right;}
+div.result div.modalDetails {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0,.9);
+	position: fixed;
+	top: 0vh;
+	left: 0vw;
+	display: none;			
+	color: #fff;
+}
+div.modalDetails a.closeDetails {width: 25px;float: right;}
+div.modalDetails a.closeDetails img {width: 24px;}
+div.modalDetails h2 {
+	width: 30%;
+	font: 270% KG;
+	text-align: center;
+	margin: 2% 5%;
+	display: block;
+}
+div.modalDetails img {width: 30%;margin-left: 5%;float: left;}
+div.modalDetails p {
+	width: 60%;
+	margin-left: 2.5%;
+	text-align: justify;
+	font: 105% Arial, Helvetica, sans-serif;
+	font-weight: 100;
+	float: left;
+	color: #fff;
+}
+div.modalDetails p strong {
+	padding: 10px 0px;
+	font: 95% roboto;
+	color: #fff;
+	display: inline-block;
+}
+
+/* Elements youngs for the footer */
+footer {grid-area: f;background: rgba(0,0,0,.9);color: #fff;}
+footer a {text-decoration: none;font: 80% firacode;color: orange;}
